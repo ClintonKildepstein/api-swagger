@@ -12,8 +12,9 @@ install:
   - npm install -g tfso/AppVeyor#1.0.104
 
 build_script:
-  - patch-version
+  - npm install
   - npm run build 
+  - patch-version
 
 artifacts:
 - path: '\'
