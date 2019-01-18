@@ -9,7 +9,7 @@ const swaggerDir = absolutePath()
 app.set('port', process.env.PORT || 3000)
 
 app.use('*', (req, res, next) => {
-    if( /^\/(index\.html)?$/gi.test(req.baseUrl))
+    if( /^($|\/(index\.html)?$)/gi.test(req.baseUrl))
         return res.sendFile(path.resolve(__dirname + '/public/index.html'))
     
     next()
