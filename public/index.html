@@ -61,6 +61,8 @@
       })
       // End Swagger UI call region
 
+      ui.fn.fetch.withCredentials = true // hack since enableCookies doesn't work in swagger-ui#3.x
+      
       window.ui = ui
     }
   </script>
