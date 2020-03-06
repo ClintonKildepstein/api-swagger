@@ -19,14 +19,14 @@
   },
   "homepage": "https://github.com/tfso/api-swagger#readme",
   "dependencies": {
-    "express": "^4.16.4",
-    "swagger-ui-dist": "^3.20.5"
+    "express": "^4.17.1",
+    "swagger-ui-dist": "^3.25.0"
   },
   "devDependencies": {
-    "@types/express": "^4.16.0",
+    "@types/express": "^4.17.3",
     "@types/node": "^10.12.17",
-    "@types/swagger-ui-dist": "^3.0.0",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.2.2"
+    "@types/swagger-ui-dist": "^3.0.5",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
   }
 }
