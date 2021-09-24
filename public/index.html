@@ -61,6 +61,8 @@
         onComplete: function(swaggerApi, swaggerUi) {
           var licenseInput = document.querySelector('div.servers input[data-variable="license-id"]')
           if(licenseInput) {
+            swaggerUi.authActions.configureAuth({ additionalQueryStringParams: { "login_hint": licenseInput.value } })
+
             licenseInput.addEventListener('blur', function(e) {
               if(swaggerUi && swaggerUi.authActions) {
                 swaggerUi.authActions.configureAuth({ additionalQueryStringParams: { "login_hint": e.target.value } })
