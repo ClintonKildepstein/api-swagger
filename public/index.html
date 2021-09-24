@@ -57,12 +57,22 @@
         plugins: [
           SwaggerUIBundle.plugins.DownloadUrl
         ],
-        layout: "StandaloneLayout"
+        layout: "StandaloneLayout",
+        onComplete: function(swaggerApi, swaggerUi) {
+          var licenseInput = document.querySelector('div.servers input[data-variable="license-id"]')
+          if(licenseInput) {
+            licenseInput.addEventListener('blur', function(e) {
+              if(swaggerUi && swaggerUi.authActions) {
+                swaggerUi.authActions.configureAuth({ additionalQueryStringParams: { "login_hint": e.target.value } })
+              }
+            })
+          }          
+        }
       })
       // End Swagger UI call region
 
       ui.fn.fetch.withCredentials = true // hack since enableCookies doesn't work in swagger-ui#3.x
-      
+
       window.ui = ui
     }
   </script>
