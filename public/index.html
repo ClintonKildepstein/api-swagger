@@ -59,16 +59,20 @@
         ],
         layout: "StandaloneLayout",
         onComplete: function(swaggerApi, swaggerUi) {
+          var ui = swaggerUi || window.ui
           var licenseInput = document.querySelector('div.servers input[data-variable="license-id"]')
-          if(licenseInput) {
-            swaggerUi.authActions.configureAuth({ additionalQueryStringParams: { "login_hint": licenseInput.value } })
 
-            licenseInput.addEventListener('blur', function(e) {
-              if(swaggerUi && swaggerUi.authActions) {
-                swaggerUi.authActions.configureAuth({ additionalQueryStringParams: { "login_hint": e.target.value } })
-              }
-            })
-          }          
+          if(licenseInput) {
+            if(ui && ui.authActions) {
+              ui.authActions.configureAuth({ additionalQueryStringParams: { "login_hint": licenseInput.value } })
+
+              licenseInput.addEventListener('blur', function(e) {
+                ui.authActions.configureAuth({ additionalQueryStringParams: { "login_hint": e.target.value } })
+              })
+            } else {
+              console.log('missing swaggerUi in onComplete')
+            }
+          }      
         }
       })
       // End Swagger UI call region
