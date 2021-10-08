@@ -64,10 +64,10 @@
 
           if(licenseInput) {
             if(ui && ui.authActions) {
-              ui.authActions.configureAuth({ additionalQueryStringParams: { "login_hint": licenseInput.value } })
+              ui.authActions.configureAuth({ additionalQueryStringParams: { "license": licenseInput.value } })
 
               licenseInput.addEventListener('blur', function(e) {
-                ui.authActions.configureAuth({ additionalQueryStringParams: { "login_hint": e.target.value } })
+                ui.authActions.configureAuth({ additionalQueryStringParams: { "license": e.target.value } })
               })
             } else {
               console.log('missing swaggerUi in onComplete')
